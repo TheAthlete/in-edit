@@ -1,0 +1,7 @@
+{
+  "name":        "in-edit",
+  "version":     "0.0.1",
+  "description": "In place edit plugin",
+  "author":      "TheAthlete",
+  "license":     "MIT"
+}
