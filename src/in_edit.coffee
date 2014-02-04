@@ -33,14 +33,18 @@ class InEdit extends Form
   # @return void
   #
   constructor: (element, options) ->
-    element = $(element)
+    @element = Element.resolve(element)
+
+    @setOptions(options)
 
     @field    = new Input(type: @options.type, name: @options.name, class: 'field')
-    @spinner  = new Spinner(4)
+    @spinner  = new Spinner({size: 4})
     @submit   = new Input(type: 'submit', class: 'submit', value: InEdit.i18n.Save)
     @cancel   = new Element('a', class: 'cancel', href: '#', html: InEdit.i18n.Cancel)
 
-    @$super(options).addClass('in-edit').attr('action', @options.url)
+    #@$super('in-edit', options).attr('action', @options.url)
+    @$super(options).addClass('rui-in-edit').attr('action', @options.url)
+    #@$super('lui-in-edit', options).addClass('in-edit').attr('action', @options.url)
     @append(@field, @spinner, @submit, @cancel).on('click', @clicked).on('submit', @send)
   
   # 

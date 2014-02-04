@@ -5,8 +5,17 @@
     <link href="/shared.css" rel="stylesheet" type="text/css" />
     <script src="/core.js"></script>
     <script type="text/javascript">
-      Lovely(["in-edit"], function(module) {
-        console.log(module.version);
+      Lovely(["in-edit", "dom"], function(InEdit, $) {
+        //var inEdit = new InEdit('');
+        //console.log(module.version);
+
+          /*$('#elem').on('click', function() {
+            this.inEdit({url: '/change'});
+            })
+            */
+
+        var editor = new InEdit('#elem', { url: '/change' });
+        $('#elem').on('click', editor.show.bind(editor));
       });
     </script>
     <!--
@@ -17,6 +26,7 @@
   </head>
   <body>
     <h1>InEdit Demo</h1>
-
+    <div id="elem">Кликни меня чтобы отредактировать!</div>
+    <!--<div onclick="Lovely.module('in-edit').$(this).inEdit({url:'/change'})">Кликни меня чтобы отредактировать!</div>-->
   </body>
 </html>
